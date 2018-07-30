@@ -1,0 +1,58 @@
+{
+	"name": "@davidosborn/portfolio",
+	"version": "0.0.0",
+	"description": "A portfolio to document my work",
+	"keywords": [
+		"portfolio",
+		"resume"
+	],
+	"homepage": "https://github.com/davidosborn/portfolio#readme",
+	"bugs": {
+		"url": "https://github.com/davidosborn/portfolio/issues",
+		"email": "david@davidosborn.io"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "David Osborn",
+		"email": "david@davidosborn.io",
+		"url": "http://davidosborn.io/"
+	},
+	"files": [
+		"lib",
+		"src"
+	],
+	"main": "index.js",
+	"bin": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/davidosborn/portfolio"
+	},
+	"scripts": {
+		"build": "npx babel -d lib src",
+		"prepublishOnly": "npm run build",
+		"start": "node index",
+		"start-background": "npx pm2 start --name=portfolio .",
+		"restart-background": "npx pm2 restart portfolio",
+		"stop-background": "npx pm2 stop portfolio",
+		"delete-background": "npx pm2 delete portfolio"
+	},
+	"config": {
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.0.0-beta",
+		"@babel/core": "^7.0.0-beta",
+		"@babel/register": "^7.0.0-beta",
+		"@davidosborn/babel-preset": "*",
+		"pm2": "*"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"babel": {
+		"presets": [
+			"@davidosborn/babel-preset"
+		]
+	}
+}
